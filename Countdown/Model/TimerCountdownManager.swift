@@ -45,7 +45,7 @@ class TimerCountdownManager: CountdownManager {
     }
     
     func addTimer() {
-        let newTimer = CountdownTimer(id: UUID(), title: "Timer", duration: 60)
+        let newTimer = CountdownTimer(id: UUID(), title: "Count\u{AD}down", duration: 60)
         countdownTimers[newTimer.id] = newTimer
     }
     

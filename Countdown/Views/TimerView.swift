@@ -25,7 +25,7 @@ struct TimerView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.25)
                 Spacer()
                 timerDisplay
-                    .overlay(Capsule().stroke(.white, lineWidth: countDownVM.pickedtimerID == timer.id ? UIConstants.strokeWidth : 0))
+                    .overlay(Capsule().stroke(.white, lineWidth: countDownVM.pickedtimerID == nil ? 0 : (countDownVM.pickedtimerID == timer.id ? UIConstants.strokeWidth : 0)))
                 Spacer()
                 timerButton
             }

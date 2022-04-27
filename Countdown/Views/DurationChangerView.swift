@@ -22,8 +22,20 @@ struct DurationChangerView: View {
     
     var body: some View {
         VStack {
-            headerSection
+            Button {
+                withAnimation(.spring()) {
+                    countdownVM.pickedtimerID = nil
+                }
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.system(size: 30))
+                    .foregroundColor(.primary)
+                    .symbolRenderingMode(.hierarchical)
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
             durationModifierCircle
+            headerSection
             buttonsSection
             ThemeColourPickerView(themeIndex: $themeIndex, colours: colours)
         }
@@ -58,17 +70,6 @@ struct DurationChangerView: View {
                 .padding(UIConstants.systemSpacing)
                 .background(Color(.tertiarySystemBackground).cornerRadius(10))
                 .padding(.horizontal)
-            Button(action: { withAnimation(.spring()) {
-                withAnimation(.spring()) {
-                    countdownVM.pickedtimerID = nil
-                }
-            } }) {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.system(size: 30))
-                    .foregroundColor(.primary)
-                    .symbolRenderingMode(.hierarchical)
-                    .padding(.horizontal)
-            }
         }
     }
     
